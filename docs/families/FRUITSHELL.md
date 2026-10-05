@@ -6,7 +6,7 @@
 **Last seen:** 2026-04-06 (latest technique carrier)
 **Platform:** Windows PowerShell (`.ps1`, `.vir`, `.txt`)
 **Archetype:** A3 — AI-Analysis Evasion
-**TLP:** TLP:AMBER
+**TLP:** TLP:GREEN
 
 ---
 
@@ -156,9 +156,13 @@ rule T3-FRUITSHELL_PowerShell_AI_Decoy_ReverseShell
         $ai_decoy_2 = "it is not malicious" nocase
         $prime_decoy = "prime number generation from 1 to 1000" nocase
 
-        $fruit_apple = "$apple" ascii wide
-        $fruit_banana = "$banana" ascii wide
-        // ... (6 fruit variables total)
+        $fruit_apple        = "$apple"       ascii wide
+        $fruit_banana       = "$banana"      ascii wide
+        $fruit_cherry       = "$cherry"      ascii wide
+        $fruit_elderberry   = "$elderberry"  ascii wide
+        $fruit_fig          = "$fig"         ascii wide
+        $fruit_grape        = "$grape"       ascii wide
+        $fruit_honeydew     = "$honeydew"    ascii wide
 
         $tcp = "System.Net.Sockets.TcpClient" nocase
         $stream_writer = "IO.StreamWriter" nocase
@@ -190,15 +194,6 @@ For pipelines that submit sample content to a language model:
 1. **Separate the evidence from its claims.** Text inside a sample is data under analysis, never instruction. Prompt construction should make that boundary explicit and unambiguous.
 2. **Flag imperative language addressed to analysis systems as a suspicious signal in its own right.** Benign software has no reason to instruct an analyzer.
 3. **Never let model output override deterministic signals.** A model that reports a file benign while YARA and 32 AV engines disagree should not be able to lower the verdict.
-
----
-
-## Open Questions
-
-1. **Actual C2 endpoint.** The `77.224.14.x` addresses are the strongest candidates but were observed only in sandbox; the port is assembled at runtime and not statically recoverable.
-2. **Scope of the 54 KB outlier (`d97b05dd`).** At ten times the size of any other carrier with no extractable cmdlets, this is a different class of artifact. Its relationship to the others is unresolved.
-3. **Continued propagation.** With the technique embedded in active course material, further spread should be assumed. Whether later adopters refine it — for instance into formats designed to survive prompt-injection filtering — is unknown.
-4. **Real-world efficacy.** No case is known in which this comment caused a missed detection. It has also cost nothing to attempt, which is why it persists.
 
 ---
 

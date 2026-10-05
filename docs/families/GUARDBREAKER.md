@@ -7,7 +7,7 @@
 **Platform:** Windows VBScript (`.vbs`)
 **Archetype:** A3 — AI-Analysis Evasion
 **Attribution:** UAC-0099 (ESET, CERT-UA)
-**TLP:** TLP:AMBER
+**TLP:** TLP:GREEN
 
 ---
 
@@ -161,12 +161,5 @@ rule T3-GUARDBREAKER_VBS_Anti_AI_Guardrail_Trigger
 
 ---
 
-## Open Questions
-
-1. Are the French-lure variants targeting Francophone countries directly, or Ukrainian diaspora in France/Belgium?
-2. ESET noted June 2026 PyPI package poisoning by UAC-0099 with similar adversarial "biological and nuclear weapons" prompts — is this the same operational playbook extending to a new delivery vector?
-3. Will UAC-0099 escalate from safety-guardrail triggering to more sophisticated anti-AI techniques?
-
----
 
 *SHA256 hashes truncated to 8 characters in narrative; full hashes in tables. Last updated 2026-09-03.*
